@@ -1,0 +1,7 @@
+{
+  "name": "CapPoC",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
