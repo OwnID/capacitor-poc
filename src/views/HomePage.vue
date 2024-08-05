@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-    <OwnidInit :config="{ appId: 'xotvc7yff9clvn', env: 'dev' }"/>
+    <OwnIdInit :config="{ appId: 'xotvc7yff9clvn', env: 'dev' }"/>
 
     <ion-header :translucent="true">
       <ion-toolbar>
@@ -23,7 +23,7 @@
       </div>
 
       <div class="ownid-container" v-if="showOwnid">
-        <OwnidElite :provider="ownidProvider"></OwnidElite>
+        <OwnId :provider="ownidProvider"></OwnId>
       </div>
     </ion-content>
   </ion-page>
@@ -31,7 +31,8 @@
 
 <script setup lang="ts">
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/vue';
-import { OwnidElite, OwnidInit } from '@ownid/vue';
+import OwnId from '../ownid/OwnId.vue';
+import OwnIdInit from '../ownid/OwnIdInit.vue';
 
 import auth from "@/services/auth.service";
 import { useRouter } from "vue-router";
@@ -46,7 +47,7 @@ const toggleOwnid = () => {
 
 const ownidProvider = {
   language: 'en',
-  onNewAccount: async (props: any, done: () => void) => {
+  onNewAccount: async (props: any) => {
     await auth.register({
       email: props.loginId,
       password: window.ownid('generateOwnIDPassword', 12),
