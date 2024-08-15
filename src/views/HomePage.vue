@@ -52,7 +52,7 @@ const ownidProvider = {
       email: props.loginId,
       password: window.ownid('generateOwnIDPassword', 12),
       name: props.profile.firstName,
-      data: props.ownIdData,
+      ownIdData: props.ownIdData,
     });
   },
   onAuthenticated: async (data: any) => {
