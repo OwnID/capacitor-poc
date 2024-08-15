@@ -60,7 +60,7 @@ final class OwnIDCAPBridgeViewController: CAPBridgeViewController {
         super.viewDidLoad()
         
         if let webView {
-            webBridge.injectInto(webView: webView)
+            webBridge.injectInto(webView: webView, allowedOriginRules: ["capacitor://dev.ownid.com"])
             
             if webView.responds(to: Selector(("setInspectable:"))) {
                 webView.perform(Selector(("setInspectable:")), with: true)
