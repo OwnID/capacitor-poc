@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { onMounted, ref, } from 'vue';
 
-const props = defineProps(['provider']);
+const props = defineProps(['config']);
 const container = ref(null);
 
 onMounted(() => {
   window.ownid('start', {
-    ...props.provider,
+    ...props.config,
     container: container.value,
   });
 });

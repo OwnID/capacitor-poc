@@ -23,7 +23,7 @@
       </div>
 
       <div class="ownid-container" v-if="showOwnid">
-        <OwnId :provider="ownidProvider"></OwnId>
+        <OwnId :config="{ providers, flow }"></OwnId>
       </div>
     </ion-content>
   </ion-page>
@@ -45,23 +45,44 @@ const toggleOwnid = () => {
   showOwnid.value = !showOwnid.value;
 }
 
-const ownidProvider = {
-  language: 'en',
-  onNewAccount: async (props: any) => {
-    await auth.register({
-      email: props.loginId,
-      password: window.ownid('generateOwnIDPassword', 12),
-      name: props.profile.firstName,
-      ownIdData: props.ownIdData,
-    });
+const providers = {
+  session: {
+    create: async (data: any) => {
+      try {
+        await auth.onLogin(data);
+
+        return { status: 'logged-in' };
+      } catch (error) {
+        console.error(error);
+        return { status: 'fail', reason: 'Failed to create session' };
+      }
+    },
   },
-  onAuthenticated: async (data: any) => {
-    await auth.onLogin(data);
+  account: {
+    register: async (account: any) => {
+      const regData = {
+        email: account.loginId,
+        password: window.ownid('generateOwnIDPassword', 12),
+        name: account.profile.firstName,
+        ownIdData: account.ownIdData,
+      };
+      try {
+        await auth.register(regData);
+
+        return { status: 'logged-in' };
+      } catch (error) {
+        return { status: 'fail', reason: error };
+      }
+    },
   },
-  onLogin: () => {
-    showOwnid.value = false;
-    router.push('/account');
-  }
+};
+const flow = {
+  events: {
+    onFinish: () => {
+      showOwnid.value = false;
+      router.push('/account');
+    },
+  },
 };
 </script>
 
