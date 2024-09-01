@@ -16,6 +16,7 @@ public class MainActivity extends BridgeActivity {
         super.onCreate(savedInstanceState);
 
         OwnIdWebViewBridge webViewBridge = OwnId.createWebViewBridge();
-        webViewBridge.injectInto(bridge.getWebView(), new HashSet<>(Collections.singletonList("https://dev.ownid.com")), this, true, null);
+        HashSet<String> allowedOriginRules = new HashSet<>(Collections.singletonList("https://dev.ownid.com"));
+        webViewBridge.injectInto(bridge.getWebView(), allowedOriginRules, this, true, null);
     }
 }
