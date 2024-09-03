@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-    <OwnIdInit :config="{ appId: 'xotvc7yff9clvn', env: 'dev' }"/>
+    <OwnIdInit :config="{ appId: '3cm1ufgrjsfexy', env: 'uat' }"/>
 
     <ion-header :translucent="true">
       <ion-toolbar>
@@ -23,7 +23,7 @@
       </div>
 
       <div class="ownid-container" v-if="showOwnid">
-        <OwnId :config="{ providers, flow }"></OwnId>
+        <OwnId :config="{ providers, events }"></OwnId>
       </div>
     </ion-content>
   </ion-page>
@@ -76,12 +76,10 @@ const providers = {
     },
   },
 };
-const flow = {
-  events: {
-    onFinish: () => {
-      showOwnid.value = false;
-      router.push('/account');
-    },
+const events = {
+  onFinish: () => {
+    showOwnid.value = false;
+    router.push('/account');
   },
 };
 </script>
