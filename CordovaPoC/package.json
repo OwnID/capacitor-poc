@@ -1,6 +1,6 @@
 {
-  "name": "com.android.demo.custom",
-  "displayName": "CordovaPoC",
+  "name": "com.ownid.demo.custom",
+  "displayName": "HelloWorld",
   "version": "1.0.0",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
@@ -13,10 +13,13 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "cordova": "^10.0.0",
-    "cordova-android": "^12.0.1"
+    "cordova-android": "^12.0.1",
+    "cordova-plugin-whitelist": "^1.3.4"
   },
   "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    },
     "platforms": [
       "android"
     ]

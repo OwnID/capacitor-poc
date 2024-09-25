@@ -28,14 +28,15 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy"
+              content="default-src *; img-src * 'self' data: https: file: filesystem:; style-src 'self' 'unsafe-inline' blob: ; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.dev.ownid.com https://fonts.cdnfonts.com"/>
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
         <link rel="stylesheet" href="css/index.css">
         <title>Hello World</title>
-    </head>
+        </head>
     <body>
         <div class="app">
             <h1>Apache Cordova</h1>
@@ -46,5 +47,15 @@
         </div>
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
+        <script>
+            ((o,w,n,i,d)=>{o[i]=o[i]||(async(...a)=>((o[i].q=o[i].q||[]).push(a),{error:null,data:null})),
+            (d=w.createElement("script")).src='https://cdn.dev.ownid.com/sdk/'+n,d.async=1,w.head.appendChild(d)})
+            (window,document,'xotvc7yff9clvn','ownid');
+        </script>
+        <script>
+            window.ownid('start', {
+
+ });
+        </script>
     </body>
 </html>

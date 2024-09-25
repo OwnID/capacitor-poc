@@ -179,6 +179,16 @@ task cdvPrintProps {
 }
 
 android {
+
+    signingConfigs {
+        demosign {
+            storeFile = file("../OwnID-Demo-Key.jks")
+            storePassword = "OwnID-Demo-Key"
+            keyAlias = "ownid-demo-key-alias"
+            keyPassword = "OwnID-Demo-Key"
+        }
+    }
+
     namespace cordovaConfig.PACKAGE_NAMESPACE
 
     defaultConfig {
@@ -199,80 +209,106 @@ android {
 
     buildToolsVersion cordovaConfig.BUILD_TOOLS_VERSION
 
+            buildTypes {
+
+                debug {
+                    signingConfig signingConfigs.demosign
+                }
+            }
+
+
     // This code exists for Crosswalk and other Native APIs.
     // By default, we multiply the existing version code in the
     // Android Manifest by 10 and add a number for each architecture.
     // If you are not using Crosswalk or SQLite, you can
     // ignore this chunk of code, and your version codes will be respected.
 
-    if (Boolean.valueOf(cdvBuildMultipleApks)) {
-        flavorDimensions "default"
-
-        productFlavors {
-            armeabi {
-                versionCode defaultConfig.versionCode*10 + 1
-                ndk {
-                    abiFilters = ["armeabi"]
-                }
-            }
-            armv7 {
-                versionCode defaultConfig.versionCode*10 + 2
-                ndk {
-                    abiFilters = ["armeabi-v7a"]
-                }
-            }
-            arm64 {
-                versionCode defaultConfig.versionCode*10 + 3
-                ndk {
-                    abiFilters = ["arm64-v8a"]
-                }
-            }
-            x86 {
-                versionCode defaultConfig.versionCode*10 + 4
-                ndk {
-                    abiFilters = ["x86"]
-                }
-            }
-            x86_64 {
-                versionCode defaultConfig.versionCode*10 + 5
-                ndk {
-                    abiFilters = ["x86_64"]
-                }
-            }
-        }
-    } else if (Boolean.valueOf(cdvVersionCodeForceAbiDigit)) {
-        // This provides compatibility to the default logic for versionCode before cordova-android 5.2.0
-        defaultConfig {
-            versionCode defaultConfig.versionCode*10
-        }
-    }
+//    if (Boolean.valueOf(cdvBuildMultipleApks)) {
+//        flavorDimensions "default"
+//
+//        productFlavors {
+//            armeabi {
+//                versionCode defaultConfig.versionCode*10 + 1
+//                ndk {
+//                    abiFilters = ["armeabi"]
+//                }
+//            }
+//            armv7 {
+//                versionCode defaultConfig.versionCode*10 + 2
+//                ndk {
+//                    abiFilters = ["armeabi-v7a"]
+//                }
+//            }
+//            arm64 {
+//                versionCode defaultConfig.versionCode*10 + 3
+//                ndk {
+//                    abiFilters = ["arm64-v8a"]
+//                }
+//            }
+//            x86 {
+//                versionCode defaultConfig.versionCode*10 + 4
+//                ndk {
+//                    abiFilters = ["x86"]
+//                }
+//            }
+//            x86_64 {
+//                versionCode defaultConfig.versionCode*10 + 5
+//                ndk {
+//                    abiFilters = ["x86_64"]
+//                }
+//            }
+//        }
+//    } else if (Boolean.valueOf(cdvVersionCodeForceAbiDigit)) {
+//        // This provides compatibility to the default logic for versionCode before cordova-android 5.2.0
+//        defaultConfig {
+//            versionCode defaultConfig.versionCode*10
+//
+//            buildTypes {
+//
+//                debug {
+//                    signingConfig signingConfigs.demosign
+//                }
+//            }
+//        }
+//    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    if (cdvReleaseSigningPropertiesFile) {
-        signingConfigs {
-            release {
-                // These must be set or Gradle will complain (even if they are overridden).
-                keyAlias = ""
-                keyPassword = ""
-                storeFile = null
-                storePassword = ""
-            }
-        }
-        buildTypes {
-            release {
-                signingConfig signingConfigs.release
-            }
-        }
-        addSigningProps(cdvReleaseSigningPropertiesFile, signingConfigs.release)
-    }
+//    if (cdvReleaseSigningPropertiesFile) {
+//        signingConfigs {
+//            release {
+//                // These must be set or Gradle will complain (even if they are overridden).
+//                keyAlias = ""
+//                keyPassword = ""
+//                storeFile = null
+//                storePassword = ""
+//            }
+//        }
+//        buildTypes {
+//            release {
+//                signingConfig signingConfigs.demosign
+//            }
+//            debug {
+//                signingConfig signingConfigs.demosign
+//            }
+//        }
+//
+//        addSigningProps(cdvReleaseSigningPropertiesFile, signingConfigs.demosign)
+//    }
+//
+////    if (cdvDebugSigningPropertiesFile) {
+////        addSigningProps(cdvDebugSigningPropertiesFile, signingConfigs.demosign)
+////    }
+//    buildTypes {
+//
+//        debug {
+//            signingConfig signingConfigs.demosign
 
-    if (cdvDebugSigningPropertiesFile) {
-        addSigningProps(cdvDebugSigningPropertiesFile, signingConfigs.debug)
-    }
+//        }
+//    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -301,33 +337,33 @@ dependencies {
 }
 
 def addSigningProps(propsFilePath, signingConfig) {
-    def propsFile = file(propsFilePath)
-    def props = new Properties()
-    propsFile.withReader { reader ->
-        props.load(reader)
-    }
-
-    def storeFile = new File(props.get('key.store') ?: privateHelpers.ensureValueExists(propsFilePath, props, 'storeFile'))
-    if (!storeFile.isAbsolute()) {
-        storeFile = RelativePath.parse(true, storeFile.toString()).getFile(propsFile.getParentFile())
-    }
-    if (!storeFile.exists()) {
-        throw new FileNotFoundException('Keystore file does not exist: ' + storeFile.getAbsolutePath())
-    }
-    signingConfig.keyAlias = props.get('key.alias') ?: privateHelpers.ensureValueExists(propsFilePath, props, 'keyAlias')
-    signingConfig.keyPassword = props.get('keyPassword', props.get('key.alias.password', signingConfig.keyPassword))
-    signingConfig.storeFile = storeFile
-    signingConfig.storePassword = props.get('storePassword', props.get('key.store.password', signingConfig.storePassword))
-    def storeType = props.get('storeType', props.get('key.store.type', ''))
-    if (!storeType) {
-        def filename = storeFile.getName().toLowerCase()
-        if (filename.endsWith('.p12') || filename.endsWith('.pfx')) {
-            storeType = 'pkcs12'
-        } else {
-            storeType = signingConfig.storeType // "jks"
-        }
-    }
-    signingConfig.storeType = storeType
+//    def propsFile = file(propsFilePath)
+//    def props = new Properties()
+//    propsFile.withReader { reader ->
+//        props.load(reader)
+//    }
+//
+//    def storeFile = new File(props.get('key.store') ?: privateHelpers.ensureValueExists(propsFilePath, props, 'storeFile'))
+//    if (!storeFile.isAbsolute()) {
+//        storeFile = RelativePath.parse(true, storeFile.toString()).getFile(propsFile.getParentFile())
+//    }
+//    if (!storeFile.exists()) {
+//        throw new FileNotFoundException('Keystore file does not exist: ' + storeFile.getAbsolutePath())
+//    }
+//    signingConfig.keyAlias = props.get('key.alias') ?: privateHelpers.ensureValueExists(propsFilePath, props, 'keyAlias')
+//    signingConfig.keyPassword = props.get('keyPassword', props.get('key.alias.password', signingConfig.keyPassword))
+//    signingConfig.storeFile = storeFile
+//    signingConfig.storePassword = props.get('storePassword', props.get('key.store.password', signingConfig.storePassword))
+//    def storeType = props.get('storeType', props.get('key.store.type', ''))
+//    if (!storeType) {
+//        def filename = storeFile.getName().toLowerCase()
+//        if (filename.endsWith('.p12') || filename.endsWith('.pfx')) {
+//            storeType = 'pkcs12'
+//        } else {
+//            storeType = signingConfig.demosign // "jks"
+//        }
+//    }
+//    signingConfig.storeType = storeType
 }
 
 for (def func : cdvPluginPostBuildExtras) {
