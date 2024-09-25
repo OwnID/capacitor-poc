@@ -321,7 +321,6 @@ android {
  * the Cordova tools will overwrite them
  */
 
-
 dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
     implementation "androidx.appcompat:appcompat:${cordovaConfig.ANDROIDX_APP_COMPAT_VERSION}"
