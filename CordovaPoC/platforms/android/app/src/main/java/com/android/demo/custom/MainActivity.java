@@ -44,7 +44,7 @@ public class MainActivity extends CordovaActivity {
         init();
 
         OwnIdWebViewBridge webViewBridge = OwnId.createWebViewBridge();
-        HashSet<String> allowedOriginRules = new HashSet<>(Collections.singletonList("https://dev.ownid.com"));
+        HashSet<String> allowedOriginRules = new HashSet<>(Collections.singletonList("https://localhost"));
         webViewBridge.injectInto((WebView) appView.getView(), allowedOriginRules, this, true, null);
 
         // Set by <content src="index.html" /> in config.xml
