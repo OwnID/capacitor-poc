@@ -19,7 +19,7 @@
 
 //
 //  AppDelegate.m
-//  HelloWorld
+//  CordovaPoC
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
@@ -27,11 +27,13 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "HelloWorld-Swift.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+    [OwnIDHelper configure];
     self.viewController = [[MainViewController alloc] init];
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }

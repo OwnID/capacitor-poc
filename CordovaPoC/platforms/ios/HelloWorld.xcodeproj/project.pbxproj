@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
+		11BAB7B82CA45A4C00E9F237 /* OwnIDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BAB7B72CA45A4C00E9F237 /* OwnIDHelper.swift */; };
+		11BAB7BB2CA45A6900E9F237 /* OwnIDCoreSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 11BAB7BA2CA45A6900E9F237 /* OwnIDCoreSDK */; };
+		11BAB7BD2CA45A6900E9F237 /* OwnIDGigyaSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 11BAB7BC2CA45A6900E9F237 /* OwnIDGigyaSDK */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -42,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		0207DA571B56EA530066E2B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HelloWorld/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		11BAB7B72CA45A4C00E9F237 /* OwnIDHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnIDHelper.swift; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11BAB7BD2CA45A6900E9F237 /* OwnIDGigyaSDK in Frameworks */,
+				11BAB7BB2CA45A6900E9F237 /* OwnIDCoreSDK in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +84,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				11BAB7B72CA45A4C00E9F237 /* OwnIDHelper.swift */,
 				302D95EE14D2391D003F00A1 /* MainViewController.h */,
 				302D95EF14D2391D003F00A1 /* MainViewController.m */,
 				302D95F014D2391D003F00A1 /* MainViewController.xib */,
@@ -210,6 +217,7 @@
 				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
+						LastSwiftMigration = 1600;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -223,6 +231,9 @@
 				Base,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			packageReferences = (
+				11BAB7B92CA45A6900E9F237 /* XCRemoteSwiftPackageReference "ownid-ios-sdk" */,
+			);
 			projectDirPath = "";
 			projectReferences = (
 				{
@@ -291,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				11BAB7B82CA45A4C00E9F237 /* OwnIDHelper.swift in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 			);
@@ -323,10 +335,12 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "HelloWorld/HelloWorld-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ownid.demo.custom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = NO;
 			};
@@ -346,10 +360,11 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "HelloWorld/HelloWorld-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ownid.demo.custom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_WORKSPACE = NO;
 			};
@@ -461,6 +476,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		11BAB7B92CA45A6900E9F237 /* XCRemoteSwiftPackageReference "ownid-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OwnID/ownid-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11BAB7BA2CA45A6900E9F237 /* OwnIDCoreSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11BAB7B92CA45A6900E9F237 /* XCRemoteSwiftPackageReference "ownid-ios-sdk" */;
+			productName = OwnIDCoreSDK;
+		};
+		11BAB7BC2CA45A6900E9F237 /* OwnIDGigyaSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11BAB7B92CA45A6900E9F237 /* XCRemoteSwiftPackageReference "ownid-ios-sdk" */;
+			productName = OwnIDGigyaSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
 }

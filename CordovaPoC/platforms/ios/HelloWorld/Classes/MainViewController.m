@@ -26,6 +26,14 @@
 //
 
 #import "MainViewController.h"
+#import "Bridging-Header.h"
+#import "HelloWorld-Swift.h"
+
+@interface MainViewController ()
+
+@property OwnIDHelper *helper;
+
+@end
 
 @implementation MainViewController
 
@@ -45,6 +53,7 @@
 {
     self = [super init];
     if (self) {
+        self.helper = [[OwnIDHelper alloc] init];
         // Uncomment to override the CDVCommandDelegateImpl used
         // _commandDelegate = [[MainCommandDelegate alloc] initWithViewController:self];
         // Uncomment to override the CDVCommandQueue used
@@ -67,7 +76,7 @@
 {
     // View defaults to full size.  If you want to customize the view's size, or its subviews (e.g. webView),
     // you can do so here.
-
+    
     [super viewWillAppear:animated];
 }
 
@@ -75,6 +84,8 @@
 {
     [super viewDidLoad];
     [self.launchView setAlpha:1];
+    
+    [self.helper injectWithWebView:self.webView];
 }
 
 @end
