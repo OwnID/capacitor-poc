@@ -7,33 +7,123 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0AB7B98B-0961-405D-9564-7ABDCF15E812"
+            uuid = "950F345E-CA2E-4AAA-84C8-F82D12AA1826"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HelloWorld/OwnIDHelper.swift"
+            filePath = "../../../../../../Library/Developer/Xcode/DerivedData/HelloWorld-ezjerdquejzosiephkcfksmzwyur/SourcePackages/checkouts/ownid-ios-sdk/ownid-core-ios-sdk/Core/Sources/Authorization/AuthManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "inject(webView:)"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "authorizationController(controller:didCompleteWithError:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0027B276-1331-4102-A714-086ED49523ED"
+            uuid = "3F6A5410-1AF9-4A46-9F47-BB053633E2E7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HelloWorld/OwnIDHelper.swift"
+            filePath = "../../../../../../Library/Developer/Xcode/DerivedData/HelloWorld-ezjerdquejzosiephkcfksmzwyur/SourcePackages/checkouts/ownid-ios-sdk/ownid-core-ios-sdk/Core/Sources/Authorization/AuthManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10"
-            landmarkName = "configure()"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E598D3A-289B-4F6E-A4D7-C564DC2CE1C9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../../../Library/Developer/Xcode/DerivedData/HelloWorld-ezjerdquejzosiephkcfksmzwyur/SourcePackages/checkouts/ownid-ios-sdk/ownid-core-ios-sdk/Core/Sources/WebBridge/OwnIDWebBridgeFido.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "invoke(bridgeContext:action:params:metadata:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F263F1F9-92E1-4A1E-B10D-FB675818DEF5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "internal-ownid-ios-sdk/ownid-core-ios-sdk/Core/Sources/WebBridge/OwnIDWebBridgeFido.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "reducer(isEnroll:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F263F1F9-92E1-4A1E-B10D-FB675818DEF5 - fc9fab284590abc2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.State, OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action) -&gt; Swift.Array&lt;OwnIDCoreSDK.Effect&lt;OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action&gt;&gt; in OwnIDCoreSDK.OwnID.CoreSDK.OwnIDWebBridgeFido.reducer(isEnroll: Swift.Bool, completion: (Swift.String) -&gt; ()) -&gt; (inout OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.State, OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action) -&gt; Swift.Array&lt;OwnIDCoreSDK.Effect&lt;OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action&gt;&gt;"
+                  moduleName = "HelloWorld.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oleksandr/Desktop/OwnID/cap-poc/CordovaPoC/platforms/ios/internal-ownid-ios-sdk/ownid-core-ios-sdk/Core/Sources/WebBridge/OwnIDWebBridgeFido.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128">
+               </Location>
+               <Location
+                  uuid = "F263F1F9-92E1-4A1E-B10D-FB675818DEF5 - fc9fab284590abc2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.State, OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action) -&gt; Swift.Array&lt;OwnIDCoreSDK.Effect&lt;OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action&gt;&gt; in OwnIDCoreSDK.OwnID.CoreSDK.OwnIDWebBridgeFido.reducer(isEnroll: Swift.Bool, completion: (Swift.String) -&gt; ()) -&gt; (inout OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.State, OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action) -&gt; Swift.Array&lt;OwnIDCoreSDK.Effect&lt;OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action&gt;&gt;"
+                  moduleName = "HelloWorld.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oleksandr/Desktop/OwnID/cap-poc/CordovaPoC/platforms/ios/internal-ownid-ios-sdk/ownid-core-ios-sdk/Core/Sources/WebBridge/OwnIDWebBridgeFido.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128">
+               </Location>
+               <Location
+                  uuid = "F263F1F9-92E1-4A1E-B10D-FB675818DEF5 - fc9fab284590abc2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.State, OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action) -&gt; Swift.Array&lt;OwnIDCoreSDK.Effect&lt;OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action&gt;&gt; in OwnIDCoreSDK.OwnID.CoreSDK.OwnIDWebBridgeFido.reducer(isEnroll: Swift.Bool, completion: (Swift.String) -&gt; ()) -&gt; (inout OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.State, OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action) -&gt; Swift.Array&lt;OwnIDCoreSDK.Effect&lt;OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action&gt;&gt;"
+                  moduleName = "HelloWorld.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oleksandr/Desktop/OwnID/cap-poc/CordovaPoC/platforms/ios/internal-ownid-ios-sdk/ownid-core-ios-sdk/Core/Sources/WebBridge/OwnIDWebBridgeFido.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128">
+               </Location>
+               <Location
+                  uuid = "F263F1F9-92E1-4A1E-B10D-FB675818DEF5 - fc9fab284590abc2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.State, OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action) -&gt; Swift.Array&lt;OwnIDCoreSDK.Effect&lt;OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action&gt;&gt; in OwnIDCoreSDK.OwnID.CoreSDK.OwnIDWebBridgeFido.reducer(isEnroll: Swift.Bool, completion: (Swift.String) -&gt; ()) -&gt; (inout OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.State, OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action) -&gt; Swift.Array&lt;OwnIDCoreSDK.Effect&lt;OwnIDCoreSDK.OwnID.CoreSDK.AuthManager.Action&gt;&gt;"
+                  moduleName = "HelloWorld.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/oleksandr/Desktop/OwnID/cap-poc/CordovaPoC/platforms/ios/internal-ownid-ios-sdk/ownid-core-ios-sdk/Core/Sources/WebBridge/OwnIDWebBridgeFido.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -4,7 +4,7 @@ import WebKit
 
 @MainActor
 @objc class OwnIDHelper: NSObject {
-    static let webBridge = OwnID.CoreSDK.createWebViewBridge()
+    static let webBridge = OwnID.CoreSDK.OwnIDWebBridge()
     
     @objc static func configure() {
         OwnID.CoreSDK.configure(appID: "xotvc7yff9clvn", userFacingSDK: info(), environment: "dev")

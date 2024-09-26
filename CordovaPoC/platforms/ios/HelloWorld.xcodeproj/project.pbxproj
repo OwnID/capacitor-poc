@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Assets.xcassets */; };
+		1158580A2CA557D000B03422 /* OwnIDCoreSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 115858092CA557D000B03422 /* OwnIDCoreSDK */; };
 		1199482F2CA469A00036C046 /* OwnIDHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1199482E2CA469A00036C046 /* OwnIDHelper.swift */; };
 		119948322CA469AF0036C046 /* OwnIDCoreSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 119948312CA469AF0036C046 /* OwnIDCoreSDK */; };
-		119948342CA469AF0036C046 /* OwnIDGigyaSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 119948332CA469AF0036C046 /* OwnIDGigyaSDK */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -91,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				119948342CA469AF0036C046 /* OwnIDGigyaSDK in Frameworks */,
+				1158580A2CA557D000B03422 /* OwnIDCoreSDK in Frameworks */,
 				119948322CA469AF0036C046 /* OwnIDCoreSDK in Frameworks */,
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 			);
@@ -242,7 +242,7 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			packageReferences = (
-				119948302CA469AF0036C046 /* XCRemoteSwiftPackageReference "ownid-ios-sdk" */,
+				115858082CA557D000B03422 /* XCLocalSwiftPackageReference "internal-ownid-ios-sdk" */,
 			);
 			projectDirPath = "";
 			projectReferences = (
@@ -482,6 +482,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		115858082CA557D000B03422 /* XCLocalSwiftPackageReference "internal-ownid-ios-sdk" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "internal-ownid-ios-sdk";
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		119948302CA469AF0036C046 /* XCRemoteSwiftPackageReference "ownid-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -494,15 +501,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		115858092CA557D000B03422 /* OwnIDCoreSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OwnIDCoreSDK;
+		};
 		119948312CA469AF0036C046 /* OwnIDCoreSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 119948302CA469AF0036C046 /* XCRemoteSwiftPackageReference "ownid-ios-sdk" */;
 			productName = OwnIDCoreSDK;
-		};
-		119948332CA469AF0036C046 /* OwnIDGigyaSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 119948302CA469AF0036C046 /* XCRemoteSwiftPackageReference "ownid-ios-sdk" */;
-			productName = OwnIDGigyaSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -49,4 +49,6 @@
     <preference name="SuppressesIncrementalRendering" value="false" />
     <preference name="SuppressesLongPressGesture" value="false" />
     <preference name="Suppresses3DTouchGesture" value="false" />
+    <preference name="scheme" value="capacitor" />
+    <preference name="hostname" value="localhost" />
 </widget>
