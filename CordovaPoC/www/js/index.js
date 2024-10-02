@@ -26,4 +26,106 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+
+    addGigyaSdkScript('4_OaQZgFXxqEu3Qim6gQJJ1w');
+
+    window.ownid('start', {
+        ...getProviders(),
+    });
+}
+
+function addGigyaSdkScript(apikey) {
+    const script = document.createElement('script');
+    script.src = `https://cdns.gigya.com/js/gigya.js?apikey=${apikey}`;
+    window.document.head.append(script);
+}
+
+function getProviders() {
+    const providers = {
+        account: {
+            register: async (account) => {
+                const regData = {
+                    loginId: account.loginId,
+                    password: window.ownid('generateOwnIDPassword', 12),
+                    firstName: account.profile.firstName,
+                    data: account.ownIdData,
+                };
+                try {
+                    await registerStreamline(regData);
+
+                    return {status: 'logged-in'};
+                } catch (error) {
+                    return {status: 'fail', reason: error};
+                }
+            },
+        },
+        auth: {
+            password: {
+                authenticate: async (params) => {
+                    try {
+                        await gigyaLogin({email: params.loginId, password: params.password});
+
+                        return {status: 'logged-in'};
+                    } catch {
+                        return {status: 'fail', reason: 'Please enter a valid password'};
+                    }
+                },
+            },
+        },
+    };
+    const events = {
+        onAccountNotFound: () => ({action: 'ui.register'}),
+    };
+
+    return {events, providers};
+}
+
+function registerStreamline({
+    firstName,
+    password,
+    data: ownidData,
+    loginId,
+}) {
+    return new Promise((resolve, reject) => {
+        window.gigya.accounts.initRegistration({
+            callback: (response) => {
+                // @ts-ignore
+                window.gigya.accounts.register({
+                    regToken: response.regToken,
+                    email: loginId,
+                    password,
+                    profile: {
+                        firstName,
+                    },
+                    data: { ownId: ownidData },
+                    finalizeRegistration: true,
+                    callback: async (data) => {
+                        if (data.status === 'FAIL') {
+                            reject(data.errorDetails);
+                            return;
+                        }
+
+                        resolve(data);
+                    },
+                });
+            },
+        });
+    });
+}
+
+function gigyaLogin({ email, password }){
+    return new Promise((resolve, reject) => {
+        window.gigya.accounts.login({
+            loginID: email,
+            password,
+            callback:  (data) => {
+                if (data.status === 'FAIL') {
+                    reject(data.errorDetails);
+                    return;
+                }
+
+                resolve(data);
+            },
+        });
+    });
 }
