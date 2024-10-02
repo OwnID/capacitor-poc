@@ -40,11 +40,11 @@ extension OwnID.CoreSDK {
                 return
             }
             
-            guard bridgeContext.sourceOrigin?.scheme == "https" || bridgeContext.sourceOrigin?.scheme == "capacitor" else {
-                let message = OwnID.CoreSDK.ErrorMessage.webSchemeURLError(urlString: bridgeContext.sourceOrigin?.absoluteString ?? "")
-                completion(handleErrorResult(fidoError: fidoError(message: message)))
-                return
-            }
+//            guard bridgeContext.sourceOrigin?.scheme == "https" || bridgeContext.sourceOrigin?.scheme == "file" else {
+//                let message = OwnID.CoreSDK.ErrorMessage.webSchemeURLError(urlString: bridgeContext.sourceOrigin?.absoluteString ?? "")
+//                completion(handleErrorResult(fidoError: fidoError(message: message)))
+//                return
+//            }
             
             switch action {
             case .isAvailable:
@@ -57,11 +57,11 @@ extension OwnID.CoreSDK {
                     return false
                 }
                 
-                guard allowedOrigin != nil else {
-                    let message = OwnID.CoreSDK.ErrorMessage.webSchemeURLError(urlString: bridgeContext.sourceOrigin?.absoluteString ?? "")
-                    completion(handleErrorResult(fidoError: fidoError(message: message)))
-                    return
-                }
+//                guard allowedOrigin != nil else {
+//                    let message = OwnID.CoreSDK.ErrorMessage.webSchemeURLError(urlString: bridgeContext.sourceOrigin?.absoluteString ?? "")
+//                    completion(handleErrorResult(fidoError: fidoError(message: message)))
+//                    return
+//                }
                 
                 guard let jsonData = params.data(using: .utf8),
                       let paramsJson = try? JSONSerialization.jsonObject(with: jsonData, options : .allowFragments) as? [String: Any],
