@@ -11,7 +11,7 @@ public class MyApp extends Application {
 
         OwnId.createInstanceFromJson(
                 this,
-                "{\"appId\": \"xotvc7yff9clvn\", \"env\": \"dev\", \"enableLogging\": true}",
+                "{\"appId\": \"xc675hd2el6tzq\", \"env\": \"dev\", \"enableLogging\": true}",
                 "DirectIntegration/3.4.0"
         );
     }

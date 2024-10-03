@@ -18,44 +18,61 @@
     under the License.
 -->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
-            https://cordova.apache.org/docs/en/latest/
-        Some notes:
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy"
-              content="default-src *; img-src * 'self' data: https: file: filesystem:; style-src 'self' 'unsafe-inline' blob: ; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.dev.ownid.com https://fonts.cdnfonts.com"/>
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="css/index.css">
-        <title>Hello World</title>
-        </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
-        <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
-        <script>
-            ((o,w,n,i,d)=>{o[i]=o[i]||(async(...a)=>((o[i].q=o[i].q||[]).push(a),{error:null,data:null})),
-            (d=w.createElement("script")).src='https://cdn.dev.ownid.com/sdk/'+n,d.async=1,w.head.appendChild(d)})
-            (window,document,'xotvc7yff9clvn','ownid');
-        </script>
-        <script>
-            window.ownid('start', {
-
- });
-        </script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
+        https://cordova.apache.org/docs/en/latest/
+    Some notes:
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src *; img-src * 'self' data: https: file: filesystem:; style-src 'self' 'unsafe-inline' blob: ; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.dev.ownid.com https://fonts.cdnfonts.com https://cdns.gigya.com/"
+          >
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Hello World</title>
+</head>
+<body>
+<div class="app">
+    <h1>Apache Cordova</h1>
+    <div id="deviceready" class="blink">
+        <p class="event listening">Connecting to Device</p>
+        <p class="event received">Device is Ready</p>
+    </div>
+</div>
+<script src="cordova.js"></script>
+<script src="js/index.js"></script>
+<script>
+    ((o, w, n, i, d) => {
+        o[i] = o[i] || (async (...a) => ((o[i].q = o[i].q || []).push(a), {error: null, data: null})),
+            (d = w.createElement("script")).src = 'https://cdn.dev.ownid.com/sdk/' + n, d.async = 1, w.head.appendChild(d)
+    })
+    (window, document, 'xc675hd2el6tzq', 'ownid');
+</script>
+<script>
+    window.ownid('init', {
+        providers: {
+            app: {
+                updateOnLoginId: ({loginId}) => /^(?=(.{1,64}@.{1,255}))([\w!#$%&'*+/=?^`{|}~-]{1,64}(\.[\w!#$%&'*+/=?^`{|}~-]*)*)@((\[(25[0-5]|2[0-4]\d|[01]?\d{1,2})(\.(25[0-5]|2[0-4]\d|[01]?\d{1,2})){3}])|([\dA-Za-z-]{1,63}(\.[\dA-Za-z-]{2,63})+))$/.test(loginId)
+                    ? {
+                        appId: 'xc675hd2el6tzq',
+                        verificationType: 'email',
+                        loginIdType: 'email',
+                    }
+                    : {
+                        appId: 'kvh0jlhxhm5fx8',
+                        verificationType: 'sms',
+                        loginIdType: 'phoneNumber',
+                    },
+            },
+        }
+    });
+</script>
+</body>
 </html>
