@@ -22,5 +22,9 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <resource-file src="OwnIDConfiguration.plist" target="OwnIDConfiguration.plist"/>
+        <preference name="deployment-target" value="14.0" />
+        <preference name="pods_ios_min_version" value="14.0" />
+        <preference name="SwiftVersion" value="5.0" />
     </platform>
 </widget>

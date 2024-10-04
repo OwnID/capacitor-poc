@@ -28,4 +28,21 @@
        
         <source-file src="src/android/com/ownid/sdk/cordova/OwnIdCordovaPlugin.java"   target-dir="src/com/ownid/sdk/cordova" />
     </platform>
+
+    <platform name="ios">
+            <config-file target="config.xml" parent="/*">
+                <feature name="OwnIDCordovaPlugin">
+                    <param name="ios-package" value="OwnIDCordovaPlugin" />
+                    <param name="onload" value="true" />
+                </feature>
+            </config-file>
+       
+        <podspec>
+            <pods use-frameworks="true">
+                <pod name="ownid-core-ios-sdk" version="~> 3.5.0" />
+            </pods>
+        </podspec>
+
+        <source-file src="src/ios/OwnIDCordovaPlugin.swift" />
+    </platform>
 </plugin>
