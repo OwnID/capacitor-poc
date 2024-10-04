@@ -1,0 +1,19 @@
+{
+  "name": "cordova-plugin-ownid",
+  "version": "0.0.1",
+  "description": "A sample Cordova plugin with Android and iOS code",
+  "cordova": {
+    "id": "cordova-plugin-ownid",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "OwnID"
+  ],
+  "author": "Your Name <you@example.com>",
+  "license": "Apache-2.0"
+}

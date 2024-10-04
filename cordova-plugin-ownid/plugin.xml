@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="cordova-plugin-ownid" version="3.4.0" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <name>OwnID</name>
+
+    <description>Cordova plugin for OwnID</description>
+
+    <license>Apache 2.0 License</license>
+
+    <keywords>cordova, ownid</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=10.0.0" />
+        <engine name="cordova-android" version=">=12.0.0" />
+        <engine name="cordova-ios" version=">=7.1.0" />
+    </engines>
+
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="OwnIdCordovaPlugin">
+                <param name="android-package" value="com.ownid.sdk.cordova.OwnIdCordovaPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+       
+        <framework src="com.ownid.android-sdk:core:3.4.0" />
+       
+        <source-file src="src/android/com/ownid/sdk/cordova/OwnIdCordovaPlugin.java"   target-dir="src/com/ownid/sdk/cordova" />
+    </platform>
+</plugin>
